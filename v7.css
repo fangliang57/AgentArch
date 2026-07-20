@@ -11,6 +11,16 @@ body {
   overflow-x: clip;
 }
 
+html {
+  scroll-padding-top: calc(var(--header-h) + 8px);
+}
+
+/* Internal prototype controls never appear on the public-facing page. */
+.tweaks-trigger,
+.tweaks-panel {
+  display: none !important;
+}
+
 /* Keep the supplied line break while stopping the Chinese title from splitting again. */
 .kv-mobile-brand {
   width: min(34%, 450px);
@@ -58,6 +68,77 @@ body {
 .lead-partners--organizer-only {
   grid-template-columns: minmax(0, 1fr);
   max-width: 760px;
+}
+
+/* Final schedule: five compact rows, each separating student work from event support. */
+.schedule-timeline {
+  display: block;
+}
+
+.schedule-card {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.52fr) minmax(0, 1.35fr) minmax(0, 1fr);
+  grid-template-areas:
+    "meta task support"
+    "title task support";
+  min-height: 0;
+  padding: 0;
+}
+
+.schedule-card::after {
+  content: none;
+}
+
+.schedule-card header {
+  grid-area: meta;
+  padding: 26px 28px 0;
+}
+
+.schedule-card h2 {
+  grid-area: title;
+  align-self: end;
+  margin: 0;
+  padding: 10px 28px 28px;
+  font-size: clamp(28px, 2.8vw, 42px);
+}
+
+.schedule-task,
+.schedule-deliverable {
+  margin: 0;
+  padding: 28px clamp(24px, 2.5vw, 38px);
+  border-top: 0;
+  border-left: 1px solid var(--v1-line-strong);
+}
+
+.schedule-task {
+  grid-area: task;
+}
+
+.schedule-deliverable {
+  grid-area: support;
+}
+
+.schedule-task p,
+.schedule-deliverable strong {
+  max-width: 42ch;
+  margin-top: 12px;
+}
+
+.schedule-deliverable strong {
+  font-size: clamp(15px, 1.35vw, 20px);
+}
+
+.reward-note {
+  margin: 16px 0 0;
+  color: var(--v1-muted);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+@media (min-width: 701px) {
+  .application-v1 h2 {
+    font-size: clamp(52px, 5.8vw, 72px);
+  }
 }
 
 /* Narrow desktop windows still use the desktop composition, with a safer text/image split. */
@@ -115,12 +196,25 @@ body {
   }
 
   .hero-partner-strip {
-    grid-template-columns: 140px minmax(0, 1fr);
+    grid-template-columns: 170px minmax(0, 1fr);
   }
 
   .hero-support-logos {
     grid-column: 1 / -1;
     border-top: 1px solid var(--v1-line);
+  }
+
+  .schedule-card {
+    grid-template-columns: minmax(174px, 0.62fr) minmax(0, 1.3fr) minmax(0, 1fr);
+  }
+
+  .schedule-card h2 {
+    padding: 8px 22px 24px;
+    font-size: clamp(27px, 3.7vw, 34px);
+  }
+
+  .schedule-card header {
+    padding: 24px 22px 0;
   }
 }
 
@@ -164,6 +258,12 @@ body {
   }
 }
 
+@media (min-width: 821px) and (max-width: 1320px) {
+  .school-grid--v1 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 700px) {
   .site-header--v1 {
     grid-template-columns: auto 1fr auto;
@@ -177,6 +277,7 @@ body {
   }
 
   .site-header--v1 .brand .brand-mark-tile {
+    display: inline-grid;
     width: 42px;
     height: 42px;
   }
@@ -402,6 +503,48 @@ body {
   .tweaks-trigger,
   .tweaks-panel {
     display: none !important;
+  }
+
+  .schedule-card {
+    grid-template-columns: 78px minmax(0, 1fr);
+    grid-template-areas:
+      "meta title"
+      "task task"
+      "support support";
+  }
+
+  .schedule-card header {
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 5px;
+    padding: 18px 14px;
+    border-right: 1px solid var(--v1-line-strong);
+    flex-direction: column;
+  }
+
+  .schedule-index {
+    font-size: 30px;
+  }
+
+  .schedule-card h2 {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 18px;
+    font-size: clamp(25px, 8vw, 31px);
+  }
+
+  .schedule-task,
+  .schedule-deliverable {
+    padding: 18px;
+    border-left: 0;
+    border-top: 1px solid var(--v1-line);
+  }
+
+  .schedule-task p,
+  .schedule-deliverable strong {
+    margin-top: 8px;
   }
 
   .prize-table td strong,
