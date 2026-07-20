@@ -1,0 +1,392 @@
+/*
+ * V2 light institutional theme
+ * Artifact: Chinese student competition landing and application page
+ * Mode: Redesign · Preserve
+ * Visual language: warm-white institutional editorial × technical grid
+ * Dials: variance 6 / motion 5 / density 6 / assets 8 / fidelity 9
+ * Protected: anchors, content order, form behavior, brand assets and responsive layout
+ */
+
+:root {
+  --ink: #f4f3ee;
+  --paper: #121210;
+  --muted: #6d6b65;
+  --dim: #97948c;
+  --line: #dedcd5;
+  --line-strong: #aaa79f;
+  --v1-white: #121210;
+  --v1-black: #f8f7f2;
+  --v1-line: rgb(18 18 16 / 0.14);
+  --v1-line-strong: rgb(18 18 16 / 0.38);
+  --v1-muted: rgb(18 18 16 / 0.62);
+  --v1-soft: rgb(18 18 16 / 0.055);
+  color-scheme: light;
+}
+
+html,
+body {
+  background: #f4f3ee;
+  color: #121210;
+}
+
+body {
+  background:
+    radial-gradient(circle at 86% 3%, rgb(18 18 16 / 0.045), transparent 24rem),
+    #f4f3ee;
+}
+
+::selection {
+  background: #121210;
+  color: #f8f7f2;
+}
+
+#signal-canvas {
+  filter: invert(1);
+  opacity: 0.52;
+}
+
+.site-header--v1 {
+  border-bottom-color: rgb(18 18 16 / 0.16);
+  background: rgb(248 247 242 / 0.88);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.7);
+}
+
+.site-header--v1.is-compact {
+  background: rgb(248 247 242 / 0.96);
+}
+
+.site-header--v1 .brand img {
+  filter: brightness(0);
+}
+
+.desktop-nav--v1 a:hover {
+  color: #121210;
+}
+
+.header-apply:hover {
+  background: #121210;
+  color: #f8f7f2;
+}
+
+.hero-v1 {
+  background: #f4f3ee;
+}
+
+.hero-v1 .hero-grid {
+  opacity: 0.72;
+}
+
+.kv-stage {
+  border-color: rgb(18 18 16 / 0.52);
+  background: #fbfaf6;
+  box-shadow: 0 18px 60px rgb(18 18 16 / 0.06);
+}
+
+.kv-stage::before {
+  border-color: rgb(18 18 16 / 0.18);
+  background: rgb(248 247 242 / 0.82);
+  color: rgb(18 18 16 / 0.58);
+}
+
+.kv-stage::after {
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 3px, rgb(18 18 16 / 0.022) 3px 4px),
+    radial-gradient(circle at 77% 50%, transparent 0 28%, rgb(255 255 255 / 0.08) 58%, rgb(18 18 16 / 0.07) 100%);
+  mix-blend-mode: multiply;
+}
+
+.kv-field {
+  filter: invert(1);
+  mix-blend-mode: multiply;
+}
+
+.kv-field--base {
+  animation-name: kv-breathe-light;
+}
+
+.kv-field--scan {
+  filter: invert(1) brightness(0.72) contrast(1.2);
+}
+
+.kv-scanline {
+  background: linear-gradient(90deg, transparent, #121210 18% 72%, transparent);
+  box-shadow: 0 0 18px rgb(18 18 16 / 0.34);
+  opacity: 0.32;
+}
+
+.kv-data-pulses span {
+  background: #121210;
+  box-shadow: 0 0 12px rgb(18 18 16 / 0.28);
+}
+
+.kv-corners i {
+  border-color: #121210;
+}
+
+.kv-apply {
+  box-shadow: 0 12px 34px rgb(18 18 16 / 0.14);
+}
+
+@keyframes kv-breathe-light {
+  from { transform: scale(1); filter: invert(1) brightness(0.98) contrast(1.03); }
+  to { transform: scale(1.018); filter: invert(1) brightness(0.9) contrast(1.1); }
+}
+
+.hero-partner-strip {
+  background: rgb(248 247 242 / 0.92);
+}
+
+.hero-mini-logo--organizer img,
+.lead-partners article:first-child img {
+  filter: brightness(0);
+}
+
+.hero-mini-logo--lead img,
+.lead-partners__range img {
+  filter: brightness(0);
+}
+
+.hero-support-logos img {
+  filter: none;
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+}
+
+.hero-support-logos .hero-support-logo--vipshop {
+  filter: none;
+  mix-blend-mode: normal;
+  opacity: 1;
+}
+
+.hero-support-logos .hero-support-logo--neolix {
+  filter: invert(1);
+  mix-blend-mode: normal;
+}
+
+.clarity-section {
+  background:
+    linear-gradient(90deg, transparent calc(100% - 1px), rgb(18 18 16 / 0.04) 1px),
+    #f8f7f2;
+}
+
+.section-rail {
+  background: rgb(18 18 16 / 0.018);
+}
+
+.plain-feature-list article,
+.schedule-card,
+.case-flow li,
+.lead-partners article {
+  background: rgb(255 255 255 / 0.28);
+}
+
+.plain-feature-list article {
+  transition: background 180ms ease;
+}
+
+.plain-feature-list article:hover {
+  background: rgb(255 255 255 / 0.72);
+}
+
+.rewards-v1 {
+  background:
+    linear-gradient(90deg, transparent calc(100% - 1px), rgb(18 18 16 / 0.04) 1px),
+    radial-gradient(circle at 76% 14%, rgb(18 18 16 / 0.055), transparent 25rem),
+    #f2f1ec;
+}
+
+.prize-matrix {
+  background: rgb(255 255 255 / 0.3);
+}
+
+.prize-table tbody tr:first-child {
+  background: #121210;
+  color: #f8f7f2;
+}
+
+.prize-table tbody tr:first-child th span,
+.prize-table tbody tr:first-child td,
+.prize-table tbody tr:first-child td small {
+  color: rgb(248 247 242 / 0.62);
+}
+
+.prize-table tbody tr:first-child td strong {
+  color: #f8f7f2;
+}
+
+.compute-v1 {
+  background:
+    radial-gradient(circle at 75% 22%, rgb(18 18 16 / 0.055), transparent 28rem),
+    repeating-linear-gradient(135deg, transparent 0 14px, rgb(18 18 16 / 0.025) 14px 15px),
+    #f8f7f2;
+}
+
+.compute-facts {
+  background: rgb(255 255 255 / 0.32);
+}
+
+.schedule-card::after,
+.case-flow li::after {
+  border-color: #121210;
+  background: #121210;
+  color: #f8f7f2;
+}
+
+.final-rule {
+  border-color: #121210;
+  background: #121210;
+  color: #f8f7f2;
+}
+
+.final-rule strong {
+  border-left-color: rgb(248 247 242 / 0.28);
+}
+
+.case-example {
+  border-color: #121210;
+  background: #fbfaf6;
+  color: #121210;
+}
+
+.case-example__head {
+  border-bottom-color: rgb(18 18 16 / 0.24);
+}
+
+.case-example span {
+  color: rgb(18 18 16 / 0.5);
+}
+
+.case-brief {
+  border-right-color: rgb(18 18 16 / 0.2);
+}
+
+.case-brief::after {
+  background: #fbfaf6;
+  color: rgb(18 18 16 / 0.52);
+}
+
+.case-brief p {
+  color: rgb(18 18 16 / 0.66);
+}
+
+.school-grid--v1 figure,
+.company-logo-grid figure {
+  background: rgb(255 255 255 / 0.26);
+}
+
+.school-logo-art__white,
+.company-logo-art__white {
+  display: none;
+}
+
+.school-logo-art--seal {
+  border-color: rgb(18 18 16 / 0.14);
+  background: radial-gradient(circle, rgb(255 255 255 / 0.9), rgb(18 18 16 / 0.035) 64%, transparent 65%);
+}
+
+.school-logo-art--zju img {
+  filter: invert(1);
+}
+
+.company-logo-art--range img {
+  filter: brightness(0);
+}
+
+.company-logo-art--neolix img {
+  filter: invert(1);
+}
+
+.application-v1 {
+  background: #f8f7f2;
+}
+
+.choice {
+  background: rgb(255 255 255 / 0.34);
+}
+
+.choice:has(input:checked) {
+  background: #121210;
+  color: #f8f7f2;
+}
+
+.choice:has(input:checked) .choice-sub {
+  color: rgb(248 247 242 / 0.62);
+}
+
+input,
+select,
+textarea {
+  caret-color: #121210;
+}
+
+select option {
+  background: #f8f7f2;
+  color: #121210;
+}
+
+.site-footer {
+  background: #121210;
+  color: #f8f7f2;
+}
+
+.footer-brand img {
+  filter: none;
+}
+
+.review-dialog {
+  border-color: #121210;
+  background: #f8f7f2;
+  color: #121210;
+}
+
+.tweaks-trigger,
+.tweaks-panel {
+  background: rgb(248 247 242 / 0.96);
+  color: #6d6b65;
+}
+
+@media (max-width: 700px) {
+  .kv-stage {
+    background:
+      linear-gradient(rgb(18 18 16 / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(18 18 16 / 0.04) 1px, transparent 1px),
+      #fbfaf6;
+  }
+
+  .kv-stage::after {
+    background:
+      linear-gradient(180deg, rgb(255 255 255 / 0.04), transparent 52%, rgb(18 18 16 / 0.08)),
+      repeating-linear-gradient(to bottom, transparent 0 3px, rgb(18 18 16 / 0.022) 3px 4px);
+  }
+
+  .kv-mobile-brand {
+    background: #fbfaf6;
+  }
+
+  .kv-mobile-brand img {
+    filter: invert(1);
+  }
+
+  .prize-table tbody tr:first-child td,
+  .prize-table tbody tr:first-child td[data-label="招聘权益选择"] {
+    border-color: rgb(248 247 242 / 0.2);
+  }
+
+  .prize-table tbody tr:first-child td::before {
+    color: rgb(248 247 242 / 0.55);
+  }
+
+  .final-rule strong {
+    border-top-color: rgb(248 247 242 / 0.28);
+  }
+
+  .case-brief {
+    border-bottom-color: rgb(18 18 16 / 0.2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kv-field--base {
+    filter: invert(1);
+  }
+}

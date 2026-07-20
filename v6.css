@@ -1,0 +1,171 @@
+/*
+ * V6 information architecture pass
+ * Mode: Redesign · Preserve
+ * Preserve: V5 palette, motion language, anchors, form fields and brand assets
+ * Improve: remove repeated participation copy and give team rules one clear home
+ */
+
+.desktop-nav--v1 {
+  gap: clamp(12px, 1.35vw, 24px);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+#team {
+  --section-accent: var(--brand-blue);
+  --section-accent-2: var(--brand-blue);
+}
+
+.team-v1 {
+  background:
+    linear-gradient(90deg, transparent calc(100% - 1px), rgb(23 23 29 / 0.034) 1px),
+    radial-gradient(circle at 88% 18%, rgb(49 87 200 / 0.055), transparent 28rem),
+    #f7f6f1;
+  background-size: 52px 100%, auto, auto;
+}
+
+.architecture-scene--team {
+  top: clamp(72px, 9vw, 132px);
+  right: clamp(-96px, -4vw, -28px);
+  color: var(--brand-blue);
+}
+
+.team-mode-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid rgb(49 87 200 / 0.24);
+  border-left: 1px solid rgb(49 87 200 / 0.24);
+  box-shadow: 0 20px 58px rgb(32 60 148 / 0.06);
+}
+
+.team-mode-card {
+  position: relative;
+  min-height: 300px;
+  padding: clamp(28px, 3.5vw, 48px);
+  border-right: 1px solid rgb(49 87 200 / 0.24);
+  border-bottom: 1px solid rgb(49 87 200 / 0.24);
+  background: rgb(255 255 255 / 0.54);
+  transition: background 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+}
+
+.team-mode-card:hover {
+  z-index: 1;
+  background: rgb(255 255 255 / 0.82);
+  box-shadow: 0 16px 42px rgb(32 60 148 / 0.08);
+  transform: translateY(-3px);
+}
+
+.team-mode-card header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgb(49 87 200 / 0.18);
+  color: var(--brand-blue);
+  font-family: var(--mono);
+}
+
+.team-mode-card header span {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.team-mode-card header small {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+.team-mode-card h2 {
+  margin: clamp(32px, 4vw, 52px) 0 18px;
+  font-family: var(--sans);
+  font-size: clamp(30px, 3.2vw, 50px);
+  line-height: 1;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.team-mode-card p {
+  max-width: 44ch;
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 15px;
+  line-height: 1.8;
+  text-wrap: pretty;
+}
+
+.team-rule {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.28fr) minmax(0, 1fr);
+  gap: 30px;
+  align-items: center;
+  padding: 24px clamp(24px, 3vw, 38px);
+  border: 1px solid rgb(49 87 200 / 0.24);
+  border-top: 0;
+  background: var(--brand-blue-wash);
+}
+
+.team-rule span {
+  color: var(--brand-blue-deep);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.team-rule p {
+  margin: 0;
+  color: rgb(23 23 29 / 0.72);
+  font-size: 14px;
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+@media (max-width: 1120px) {
+  .desktop-nav--v1 {
+    gap: 11px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 700px) {
+  .team-mode-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .team-mode-card {
+    min-height: 0;
+    padding: 24px 20px 28px;
+  }
+
+  .team-mode-card header {
+    padding-bottom: 18px;
+  }
+
+  .team-mode-card h2 {
+    margin: 26px 0 14px;
+    font-size: clamp(28px, 8.5vw, 36px);
+  }
+
+  .team-mode-card p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .team-rule {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .architecture-scene--team {
+    right: -26vw;
+    width: min(78vw, 520px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-mode-card {
+    transition: none;
+  }
+}
