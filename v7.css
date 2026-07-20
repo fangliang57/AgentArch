@@ -1,8 +1,8 @@
 /*
- * V7 mobile and compact-tablet layout repair
+ * V7 desktop-window and mobile layout repair
  * Mode: Redesign · Preserve
  * Preserve: V6 content, brand palette, assets, animation and form contracts
- * Improve: hero line-breaking, compact-tablet density, mobile logo sizing and form ergonomics
+ * Improve: hero line-breaking, compact-desktop density, mobile logo sizing and form ergonomics
  */
 
 html,
@@ -12,12 +12,56 @@ body {
 }
 
 /* Keep the supplied line break while stopping the Chinese title from splitting again. */
+.kv-mobile-brand {
+  width: min(34%, 450px);
+}
+
 .kv-brand-copy h1 {
   white-space: nowrap;
   text-wrap: nowrap;
 }
 
-@media (min-width: 701px) and (max-width: 980px) {
+/* One partnership tier: organizer first, followed by five equally sized partner slots. */
+.hero-partner-strip {
+  grid-template-columns: 160px minmax(320px, 0.9fr) minmax(0, 2.1fr);
+}
+
+.hero-support-logos {
+  grid-column: auto;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(8px, 1.2vw, 20px);
+  min-height: 0;
+  padding: 16px clamp(14px, 1.5vw, 24px);
+  border-top: 0;
+}
+
+.hero-support-logo-item {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  height: 44px;
+}
+
+.hero-support-logos .hero-support-logo-item img {
+  width: min(100%, 140px);
+  max-width: 140px;
+  height: 34px;
+  max-height: 34px;
+  justify-self: center;
+  object-fit: contain;
+  object-position: center;
+  filter: none;
+  mix-blend-mode: normal;
+  opacity: 1;
+}
+
+.lead-partners--organizer-only {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 760px;
+}
+
+/* Narrow desktop windows still use the desktop composition, with a safer text/image split. */
+@media (min-width: 701px) and (max-width: 1100px) {
   .kv-stage {
     min-height: 520px;
     aspect-ratio: auto;
@@ -69,6 +113,15 @@ body {
     width: min(35%, 300px);
     min-width: 210px;
   }
+
+  .hero-partner-strip {
+    grid-template-columns: 140px minmax(0, 1fr);
+  }
+
+  .hero-support-logos {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--v1-line);
+  }
 }
 
 @media (min-width: 701px) and (max-width: 820px) {
@@ -112,17 +165,96 @@ body {
 }
 
 @media (max-width: 700px) {
+  .kv-stage {
+    --kv-mobile-visual-top: 0px;
+    min-height: clamp(500px, 132vw, 560px);
+    aspect-ratio: auto;
+    background:
+      linear-gradient(rgb(49 87 200 / 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(49 87 200 / 0.045) 1px, transparent 1px),
+      #fffefa;
+    background-size: 32px 32px;
+    box-shadow: 0 24px 68px rgb(32 60 148 / 0.1);
+  }
+
+  .kv-frame {
+    inset: 74px -48% -28px -38%;
+    overflow: hidden;
+    background: transparent;
+    opacity: 0.88;
+  }
+
+  .kv-field {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: 64% center;
+    filter: saturate(0.82) contrast(1.03);
+    mix-blend-mode: multiply;
+  }
+
+  .kv-field--base {
+    opacity: 0.94;
+  }
+
+  .kv-field--scan {
+    opacity: 0.12;
+    filter: saturate(0.72) contrast(1.1);
+  }
+
+  .kv-stage::after {
+    background:
+      linear-gradient(180deg, #fffefa 0 10%, rgb(255 254 250 / 0.92) 24%, rgb(255 254 250 / 0.6) 36%, transparent 58%),
+      linear-gradient(90deg, rgb(255 254 250 / 0.78) 0, transparent 58%),
+      repeating-linear-gradient(to bottom, transparent 0 4px, rgb(49 87 200 / 0.018) 4px 5px);
+  }
+
+  .kv-data-pulses {
+    inset: 76px 0 0;
+    opacity: 0.28;
+  }
+
   .kv-mobile-brand {
+    top: 24px;
+    right: auto;
+    left: 20px;
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 12px;
+    width: min(calc(100% - 40px), 370px);
+    max-width: 370px;
+    height: auto;
+    padding: 0;
     overflow: visible;
+    background: transparent;
+  }
+
+  .kv-mobile-brand .kv-brand-mark {
+    width: 52px;
+    height: 52px;
   }
 
   .kv-brand-copy {
     overflow: visible;
   }
 
+  .kv-brand-copy span {
+    margin-bottom: 8px;
+    font-size: 6.5px;
+    letter-spacing: 0.13em;
+  }
+
   .kv-brand-copy h1 {
-    font-size: clamp(31px, 9vw, 38px);
-    line-height: 0.92;
+    font-size: clamp(40px, 12.5vw, 52px);
+    line-height: 0.86;
+    letter-spacing: -0.075em;
+  }
+
+  .kv-brand-copy p {
+    margin-top: 10px;
+    font-size: 8.5px;
+    letter-spacing: 0.06em;
   }
 
   .kv-brand-copy span,
@@ -130,22 +262,48 @@ body {
     white-space: nowrap;
   }
 
-  .hero-support-logos {
-    justify-items: center;
+  .kv-apply {
+    top: auto;
+    right: 20px;
+    bottom: 20px;
+    left: auto;
+    justify-content: center;
+    width: 156px;
+    min-width: 0;
+    min-height: 46px;
+    padding: 0 18px;
+    box-shadow: 0 14px 30px rgb(49 87 200 / 0.2);
   }
 
-  .hero-support-logos img,
-  .hero-support-logos .hero-support-logo--vipshop,
-  .hero-support-logos .hero-support-logo--transfar,
-  .hero-support-logos .hero-support-logo--sunshine,
-  .hero-support-logos .hero-support-logo--neolix {
+  .kv-apply .action-code {
+    display: none;
+  }
+
+  .hero-support-logos {
+    grid-column: 1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: auto;
+    gap: 10px 18px;
+    justify-items: center;
+    min-height: 0;
+    padding: 14px 18px 16px;
+  }
+
+  .hero-support-logo-item {
     width: 100%;
-    max-width: 120px;
-    height: 30px;
-    max-height: 30px;
-    justify-self: center;
-    object-fit: contain;
-    object-position: center;
+    height: 42px;
+  }
+
+  .hero-support-logo-item:last-child {
+    grid-column: 1 / -1;
+    width: calc(50% - 9px);
+  }
+
+  .hero-support-logos .hero-support-logo-item img {
+    width: min(100%, 126px);
+    max-width: 126px;
+    height: 32px;
+    max-height: 32px;
   }
 
   .prize-table td strong,
@@ -182,6 +340,18 @@ body {
 }
 
 @media (max-width: 420px) {
+  .kv-mobile-brand {
+    left: 16px;
+    width: calc(100% - 32px);
+  }
+
+  .kv-apply {
+    right: 16px;
+    bottom: 16px;
+    left: auto;
+    width: 148px;
+  }
+
   .clarity-heading h1,
   .reward-heading h1 {
     font-size: clamp(30px, 9vw, 35px);
