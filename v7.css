@@ -165,9 +165,39 @@ body {
 }
 
 @media (max-width: 700px) {
+  .site-header--v1 {
+    grid-template-columns: auto 1fr auto;
+    min-height: 64px;
+    padding-inline: 16px;
+  }
+
+  .site-header--v1 .brand {
+    width: 42px;
+    min-width: 42px;
+  }
+
+  .site-header--v1 .brand .brand-mark-tile {
+    width: 42px;
+    height: 42px;
+  }
+
+  .header-apply {
+    justify-self: end;
+    width: 116px;
+    min-width: 116px;
+    height: 42px;
+    min-height: 42px;
+    padding-inline: 14px;
+    font-size: 12px;
+  }
+
+  .hero-v1 {
+    padding: calc(var(--header-h) + 8px) 12px 0;
+  }
+
   .kv-stage {
     --kv-mobile-visual-top: 0px;
-    min-height: clamp(500px, 132vw, 560px);
+    min-height: clamp(472px, 124vw, 520px);
     aspect-ratio: auto;
     background:
       linear-gradient(rgb(49 87 200 / 0.045) 1px, transparent 1px),
@@ -178,7 +208,7 @@ body {
   }
 
   .kv-frame {
-    inset: 74px -48% -28px -38%;
+    inset: 62px -52% -24px -42%;
     overflow: hidden;
     background: transparent;
     opacity: 0.88;
@@ -219,7 +249,7 @@ body {
   .kv-mobile-brand {
     position: absolute;
     z-index: 9;
-    top: 24px;
+    top: 22px;
     right: auto;
     left: 20px;
     display: grid;
@@ -268,7 +298,7 @@ body {
   .kv-apply {
     top: auto;
     right: 20px;
-    bottom: 20px;
+    bottom: 18px;
     left: auto;
     justify-content: center;
     width: 156px;
@@ -283,8 +313,13 @@ body {
   }
 
   .hero-partner-strip {
-    grid-template-columns: minmax(0, 1fr);
+    display: block;
+    width: 100%;
     min-height: 0;
+  }
+
+  .hero-partner-strip__label {
+    display: none;
   }
 
   .hero-partner-strip > * {
@@ -315,6 +350,8 @@ body {
   }
 
   .hero-mini-logo--organizer strong {
+    display: block;
+    width: 100%;
     grid-column: 2;
     grid-row: 2;
     max-width: 12em;
@@ -322,7 +359,7 @@ body {
     line-height: 1.35;
     white-space: normal;
     word-break: keep-all;
-    writing-mode: horizontal-tb;
+    writing-mode: horizontal-tb !important;
   }
 
   .hero-support-logos {
